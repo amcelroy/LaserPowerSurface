@@ -1,0 +1,15 @@
+.flexcontainer{
+    display: flex;
+}
+
+.textbox{
+    border: 1px;
+    border-style: solid;
+    width: fit-content;
+    margin: 3px;
+    padding: 4px;
+}
+
+.inputInteger{
+    width: 64px;
+}

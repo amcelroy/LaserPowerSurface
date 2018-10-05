@@ -1,0 +1,123 @@
+<html>
+    <link rel="stylesheet" type="type/css" href="index.css">
+        <!-- f(x,y) = p00 + p10*x + p01*y + p20*x^2 + p11*x*y + p02*y^2 + p30*x^3 + p21*x^2*y 
+        + p12*x*y^2 + p03*y^3 + p40*x^4 + p31*x^3*y + p22*x^2*y^2 
+        + p13*x*y^3 + p04*y^4-->
+
+
+    <div class="flexcontainer">
+        <div class="flexbox">
+            <div class="textBox">
+                X Min: 
+                <input type="number" step="1" value="-100" id="x_min" class="inputInteger">
+                , X Max: 
+                <input type="number" step="1" value="100" id="x_max" class="inputInteger">
+            </div>
+            <div class="textBox">
+                    Y Min: 
+                    <input type="number" step="1" value="-100" id="y_min" class="inputInteger">
+                    , Y Max: 
+                    <input type="number" step="1" value="100" id="y_max" class="inputInteger">
+                </div>
+            <div class="textBox" id="textBox_p00">
+                p00: 
+                <input type="number" step="1" value="51" id="i_p00" class="inputInteger">
+                .
+                <input type="number" min="0" step="1" value="76" id="f_p00">
+            </div>
+            <div class="textBox" id="textBox_p10">
+                p10: 
+                <input type="number" step="1" value="0" id="i_p10" class="inputInteger">
+                .
+                <input type="number" value="7575" step="1" min="0" id="f_p10">
+            </div>
+            <div class="textBox" id="textBox_p01">
+                p01: 
+                <input type="number" step="1" value="0" id="i_p01" class="inputInteger">
+                .
+                <input type="number" value="5046" step="1" min="0" id="f_p01">
+            </div>
+            <div class="textBox" id="textBox_p20">
+                p20: 
+                <input type="number" step="1" value="-0" id="i_p20" class="inputInteger">
+                .
+                <input type="number" value="5502" step="1" min="0" id="f_p20">
+            </div>
+            <div class="textBox" id="textBox_p11">
+                p11: 
+                <input type="number" step="1" value="0" id="i_p11" class="inputInteger">
+                .
+                <input type="number" value="3842" step="1" min="0" id="f_p11">
+            </div>
+            <div class="textBox" id="textBox_p02">
+                p02: 
+                <input type="number" step="1" value="0" id="i_p02" class="inputInteger">
+                .
+                <input type="number" value="2023" step="1" min="0" id="f_p02">
+            </div>
+            <div class="textBox" id="textBox_p30">
+                p30: 
+                <input type="number" step="1" value="0" id="i_p30" class="inputInteger">
+                .
+                <input type="number" value="3453" step="1" min="0" id="f_p30">
+            </div>
+            <div class="textBox" id="textBox_p21">
+                p21: 
+                <input type="number" step="1" value="-0" id="i_p21" class="inputInteger">
+                .
+                <input type="number" value="3341" step="1" min="0" id="f_p21">
+            </div>
+            <div class="textBox" id="textBox_p12">
+                p12: 
+                <input type="number" step="1" value="0" id="i_p12" class="inputInteger">
+                .
+                <input type="number" value="1976" step="1" min="0" id="f_p12">
+            </div>
+            <div class="textBox" id="textBox_p03">
+                p03: 
+                <input type="number" step="1" value="-0" id="i_p03" class="inputInteger">
+                .
+                <input type="number" value="02666" step="1" min="0" id="f_p03">
+            </div>
+            <div class="textBox" id="textBox_p40">
+                p40: 
+                <input type="number" step="1" value="-0" id="i_p40" class="inputInteger">
+                .
+                <input type="number" value="119" step="1" min="0" id="f_p40">
+            </div>
+            <div class="textBox" id="textBox_p31">
+                p31: 
+                <input type="number" step="1" value="0" id="i_p31" class="inputInteger">
+                .
+                <input type="number" value="0259" step="1" min="0" id="f_p31">
+            </div>
+            <div class="textBox" id="textBox_p22">
+                p22: 
+                <input type="number" step="1" value="-0" id="i_p22" class="inputInteger">
+                .
+                <input type="number" value="08921" step="1" min="0" id="f_p22">
+            </div>
+            <div class="textBox" id="textBox_p13">
+                p13: 
+                <input type="number" step="1" value="-0" id="i_p13" class="inputInteger">
+                .
+                <input type="number" value="0333" step="1" min="0" id="f_p13">
+            </div>
+            <div class="textBox" id="textBox_p04">
+                p04: 
+                <input type="number" step="1" value="-0" id="i_p04" class="inputInteger">
+                .
+                <input type="number" value="03074" step="1" min="0" id="f_p04">
+            </div>
+
+            <input type="button" value="Reload" onclick="parseInputs()">
+        </div>
+        <div class="flexbox" id="surfacePower" width="784px" height="784px">
+
+        </div>
+    </div>
+
+    <script src="plotly-latest.min.js"></script>
+    <script src="decimal.js"></script>
+    <script src="main.js"></script>
+</html>
