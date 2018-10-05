@@ -73,12 +73,48 @@ function parseInputs(){
     var p04 = new Decimal6(i_p04 + "." + f_p04);
 
     var z = [];
+    // where x is normalized by mean -0.4798 and std 51.69
+    // and where y is normalized by mean -2.946 and std 49.97
+
     for(var y = y_min; y < y_max; y++){
         var row = [];
+
+        var yy = new Decimal6((y - 2.946) / 49.97);
+        var yy_sqr = yy.pow(2);
+        var yy_3rd = yy.pow(3);
+        var yy_4th = yy.pow(4);
+
         for(var x = x_min; x < x_max; x++){
-            var power = p00 + p10*x + p01*y + p20*x^2 + p11*x*y + p02*y^2 + p30*x^3 + p21*x^2*y 
-                    + p12*x*y^2 + p03*y^3 + p40*x^4 + p31*x^3*y + p22*x^2*y^2 
-                    + p13*x*y^3 + p04*y^4
+            var xx = new Decimal6((x - .4798) / 51.69);
+            var xx_sqr = xx.pow(2);
+            var xx_3rd = xx.pow(3);
+            var xx_4th = xx.pow(4);
+            
+
+            var power = 
+                p00.plus(p10.times(xx))
+                .plus(p01.times(yy))
+                .plus(p20.times(xx_sqr))
+                .plus(p11.times(xx).times(yy))
+                .plus(p02.times(yy_sqr))
+                .plus(p30.times(xx_3rd))
+                .plus(p21.times(xx_sqr).times(yy))
+                .plus(p12.times(xx).times(yy_sqr))
+                .plus(p03.times(yy_3rd))
+                .plus(p40.times(xx_4th))
+                .plus(p31.times(xx_3rd).times(yy))
+                .plus(p22.times(xx_sqr).times(yy_sqr))
+                .plus(p13.times(xx).times(yy_3rd))
+                .plus(p04.times(yy_4th));
+
+            // var power = p00 + p10*x + p01*y + p20*x^2 + p11*x*y + p02*y^2 + p30*x^3 
+            //         + p21*x^2*y 
+            //         + p12*x*y^2 + p03*y^3 + p40*x^4 + p31*x^3*y + p22*x^2*y^2 
+            //         + p13*x*y^3 + p04*y^4
+            power = power.toPrecision(6);
+            power = Math.max(0, power);
+            power = Math.min(100, power);
+
             row.push(power);
         }
         z.push(row);
